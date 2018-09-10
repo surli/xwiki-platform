@@ -96,6 +96,11 @@ public interface WikiMacroConstants
      * Constant for representing macro content description property.
      */
     String MACRO_CONTENT_DESCRIPTION_PROPERTY = "contentDescription";
+    /**
+     * Constant for representing macro content supportsInlineEdition property
+     * @since 10.8-rc-1
+     */
+    String MACRO_CONTENT_SUPPORTS_INLINE_EDITION_PROPERTY = "contentSupportsInlineEdition";
 
     /**
      * Constant for representing macro code property.

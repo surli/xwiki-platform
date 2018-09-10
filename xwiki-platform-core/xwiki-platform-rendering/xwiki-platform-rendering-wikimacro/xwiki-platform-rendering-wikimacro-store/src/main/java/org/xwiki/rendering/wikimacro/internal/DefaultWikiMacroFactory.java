@@ -144,6 +144,7 @@ public class DefaultWikiMacroFactory implements WikiMacroFactory, WikiMacroConst
         WikiMacroVisibility macroVisibility =
             WikiMacroVisibility.fromString(macroDefinition.getStringValue(MACRO_VISIBILITY_PROPERTY));
         boolean macroSupportsInlineMode = (macroDefinition.getIntValue(MACRO_INLINE_PROPERTY) == 0) ? false : true;
+        boolean macroContentSupportsInlineEdition = (macroDefinition.getIntValue(MACRO_CONTENT_SUPPORTS_INLINE_EDITION_PROPERTY) == 0) ? false : true;
         String macroContentType = macroDefinition.getStringValue(MACRO_CONTENT_TYPE_PROPERTY);
         // The macro content description as plain text
         String macroContentDescription = macroDefinition.getStringValue(MACRO_CONTENT_DESCRIPTION_PROPERTY);
@@ -216,7 +217,7 @@ public class DefaultWikiMacroFactory implements WikiMacroFactory, WikiMacroConst
                         "Incomplete macro definition in [%s], macro parameter name is empty", documentReference));
                 }
 
-                // Verify parameter description.
+                // Verify parameter description.q
                 if (StringUtils.isEmpty(parameterDescription)) {
                     String errorMessage = "Incomplete macro definition in [%s], macro parameter description is empty";
                     this.logger.debug(String.format(errorMessage, documentReference));
@@ -237,7 +238,7 @@ public class DefaultWikiMacroFactory implements WikiMacroFactory, WikiMacroConst
         ContentDescriptor contentDescriptor = null;
         if (!macroContentType.equals(MACRO_CONTENT_EMPTY)) {
             contentDescriptor =
-                new DefaultContentDescriptor(macroContentDescription, macroContentType.equals(MACRO_CONTENT_MANDATORY));
+                new DefaultContentDescriptor(macroContentDescription, macroContentType.equals(MACRO_CONTENT_MANDATORY), macroContentSupportsInlineEdition);
         }
 
         // Create macro descriptor.

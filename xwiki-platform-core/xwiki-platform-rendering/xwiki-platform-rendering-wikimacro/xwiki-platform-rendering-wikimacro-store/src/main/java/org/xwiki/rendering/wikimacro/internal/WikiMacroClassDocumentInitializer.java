@@ -65,6 +65,7 @@ public class WikiMacroClassDocumentInitializer extends AbstractMandatoryClassIni
             "Current User|Current Wiki|Global", ListClass.DISPLAYTYPE_SELECT, PROPERTY_PIPE);
         xclass.addStaticListField(MACRO_CONTENT_TYPE_PROPERTY, "Macro content type", 1, false,
             "Optional|Mandatory|No content", ListClass.DISPLAYTYPE_SELECT, PROPERTY_PIPE);
+        xclass.addBooleanField(MACRO_CONTENT_SUPPORTS_INLINE_EDITION_PROPERTY, "Supports inline edition in WYSIWYG", "yesno");
         // The Macro content description is using plain text (same as for Java Macros).
         xclass.addTextAreaField(MACRO_CONTENT_DESCRIPTION_PROPERTY,
             "Content description (Not applicable for \"No content\" type)", 40, 5, TextAreaClass.ContentType.PURE_TEXT);
